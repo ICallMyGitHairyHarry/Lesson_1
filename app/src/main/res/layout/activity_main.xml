@@ -16,7 +16,7 @@
         android:fontFamily="@font/inter_black"
         android:letterSpacing="-0.02"
         android:text="Лол"
-        android:textColor="#6FCF97"
+        android:textColor="@color/light_green"
         android:textSize="32dp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,9 +39,9 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="6dp"
-            android:backgroundTint="#fff"
+            android:backgroundTint="@color/white"
             android:drawableRight="@drawable/ic_baseline_email_24"
-            android:hint="Email"
+            android:hint="@string/eml"
             android:orientation="vertical"
 
 
@@ -62,9 +62,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
-            android:backgroundTint="#fff"
+            android:backgroundTint="@color/white"
             android:drawableRight="@drawable/ic_baseline_perm_identity_24"
-            android:hint="Имя"
+            android:hint="@string/name"
             android:orientation="vertical" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -83,8 +83,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
-            android:backgroundTint="#fff"
-            android:hint="Фамилия"
+            android:backgroundTint="@color/white"
+            android:hint="@string/second_name"
             android:orientation="vertical" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -102,9 +102,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="6dp"
-            android:backgroundTint="#fff"
+            android:backgroundTint="@color/white"
             android:drawableRight="@drawable/ic_baseline_lock_24"
-            android:hint="Пароль" />
+            android:hint="@string/pass" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,9 +120,9 @@
             android:id="@+id/editText5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#fff"
+            android:backgroundTint="@color/white"
             android:drawableRight="@drawable/ic_baseline_lock_open_24"
-            android:hint="Подтверждение пароля" />
+            android:hint="@string/pass_confirm" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -132,7 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:backgroundTint="#6FCF97"
+        android:backgroundTint="@color/light_green"
         android:text="Регистрация"
 
         android:textAllCaps="false"
@@ -148,7 +148,7 @@
         android:alpha="0.87"
         android:gravity="center"
         android:text="Уже есть аккаунт? Войти"
-        android:textColor="#000"
+        android:textColor="@color/black"
         android:textSize="16dp"
         app:layout_constraintTop_toBottomOf="@+id/button2"
         tools:layout_editor_absoluteX="16dp" />

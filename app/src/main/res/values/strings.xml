@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Lesson_1</string>
+
+    <string name="eml">Email</string>
+    <string name="name">Имя</string>
+    <string name="second_name">Фамилия</string>
+    <string name="pass">Пароль</string>
+    <string name="pass_confirm">Подтверждение пароля</string>
+
 </resources>
