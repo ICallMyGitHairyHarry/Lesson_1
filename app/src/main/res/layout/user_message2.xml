@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Это твое сообщение, пиши, что захочется и тебя никто не остановит"
+    android:padding="15dp"
+    android:textColor="@color/black"
+    android:textSize="11dp"
+    android:layout_marginEnd="25dp"
+    android:backgroundTint="@color/dark_gray"
+    android:background="@drawable/rounded_corner"
+    android:id="@+id/mess"
+    android:layout_marginBottom="32dp"
+
+    >
+
+</TextView>

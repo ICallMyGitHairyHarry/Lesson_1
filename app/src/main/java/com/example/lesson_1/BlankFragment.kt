@@ -25,9 +25,11 @@ class BlankFragment : DialogFragment() {
         val passes = view.findViewById<TextView>(R.id.passes)
         val pass8 = view.findViewById<TextView>(R.id.pass_8)
 
-        val Data1: Array<String?> = arrayOf(arguments?.getString("email"), arguments?.getString("name"), arguments?.getString("secname"), arguments?.getString("pass"), arguments?.getString("pass_conf"))
-        val pass_v = arguments?.getString("pass_value")
-        val pass_c_v = arguments?.getString("pass_conf_value")
+        val received_data = arguments?.getParcelable<BigData>("data")
+
+        val Data1: Array<String?> = arrayOf(received_data?.email, received_data?.name, received_data?.secname, received_data?.pass, received_data?.pass_conf)
+        val pass_v = received_data?.pass_value
+        val pass_c_v = received_data?.pass_conf_value
 
         for (i in 0..Data1.size-2) {
             if (Data1[i] != null) { emailText.append(Data1[i]) }

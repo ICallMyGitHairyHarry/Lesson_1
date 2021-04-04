@@ -2,6 +2,7 @@ package com.example.lesson_1
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +11,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.parcel.Parcelize
 
-class SignInFragment : Fragment(), View.OnClickListener {
+class SignInFragment : Fragment(), View.OnClickListener, Communicator {
 
-    private lateinit var communicator: Communicator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,6 @@ class SignInFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        communicator = activity as Communicator
 
         val sign_in_hint = view.findViewById<TextView>(R.id.sign_in_hint)
         val reg_button = view.findViewById<Button>(R.id.reg_button)
@@ -64,11 +64,11 @@ class SignInFragment : Fragment(), View.OnClickListener {
                         if (name != "") { name_layout = "" }
                         if (secname != "") { sec_name_layout = "" }
                         if (passconf != "") { pass_conf_layout = "" }
-                        communicator.transferBigData(email_layout, name_layout, sec_name_layout, pass_layout, pass_conf_layout, pass, passconf)
+                        transferBigData(BigData(email_layout, name_layout, sec_name_layout, pass_layout, pass_conf_layout, pass, passconf))
                     } else {
                         val intent = Intent(activity, MainMenuActivity::class.java)
                         intent.putExtra("welcome", "Успешная регистрация")
-                        intent.putExtra("user_data", User(email, pass))
+                        intent.putExtra("user_data", User(name, secname))
                         if (activity?.packageManager?.let { intent.resolveActivity(it) } != null) {
                             startActivity(intent)
                         }
@@ -77,4 +77,15 @@ class SignInFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    override fun transferBigData(Data: BigData) {
+        val bundle = Bundle()
+        bundle.putParcelable("data", Data)
+        val blankFragment = BlankFragment()
+        blankFragment.arguments = bundle
+        activity?.supportFragmentManager?.let { blankFragment.show(it, "blank_fragment") }
+    }
+
 }
+
+@Parcelize
+data class BigData (val email : String?, val name: String?, val secname: String?, val pass: String?, val pass_conf: String?, val pass_value: String?, val pass_conf_value: String?): Parcelable {}

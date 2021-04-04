@@ -17,9 +17,8 @@ import androidx.fragment.app.FragmentManager
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.parcel.Parcelize
 
-class ActualSingInFragment : Fragment(), View.OnClickListener {
+class ActualSingInFragment : Fragment(), View.OnClickListener, Communicator {
 
-    private lateinit var communicator: Communicator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +34,6 @@ class ActualSingInFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        communicator = activity as Communicator
 
         val sing_up_hint = view.findViewById<TextView>(R.id.sing_up_hint)
         val login = view.findViewById<Button>(R.id.login)
@@ -44,6 +42,14 @@ class ActualSingInFragment : Fragment(), View.OnClickListener {
 
 
 
+    }
+
+    override fun transferBigData(Data: BigData) {
+        val bundle = Bundle()
+        bundle.putParcelable("data", Data)
+        val blankFragment = BlankFragment()
+        blankFragment.arguments = bundle
+        activity?.supportFragmentManager?.let { blankFragment.show(it, "blank_fragment") }
     }
 
     override fun onClick(v: View?) {
@@ -70,7 +76,7 @@ class ActualSingInFragment : Fragment(), View.OnClickListener {
                         if (email.getText()?.toString() == "") {
                             email_string = email_layout?.hint.toString()
                         }
-                        communicator.transferData(email_string, pass_string)
+                        transferBigData(BigData(email_string, null, null,  pass_string, null, null, null))
                     } else {
                         val intent = Intent(activity, MainMenuActivity::class.java)
                         intent.putExtra("welcome", "Привет, рады снова тебя видеть!")
