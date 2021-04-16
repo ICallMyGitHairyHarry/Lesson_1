@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 class chatAdapter: RecyclerView.Adapter<chatAdapter.ViewHolder>() {
 
-    var data_list = arrayListOf<Message>()
+    var data_list = listOf<Message>()
 
-    fun setData(data: ArrayList<Message>) {
+    fun setData(data: List<Message>) {
         data_list = data
         notifyDataSetChanged()
     }
