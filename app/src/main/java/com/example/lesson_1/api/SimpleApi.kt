@@ -14,13 +14,14 @@ interface SimpleApi {
     @GET("users")
     suspend fun getUsers(): Response<List<User>>
 
+    // если поставить "post", то почему-то выдаёт ошибку 404 not found
     @POST("posts")
     suspend fun pushPost(
         @Body post: Post
     ): Response<Post>
 
     @FormUrlEncoded
-    @POST("post")
+    @POST("posts")
     suspend fun pushPost2(
         @Field("userId") userId: Int,
         @Field("id") id: Int,
