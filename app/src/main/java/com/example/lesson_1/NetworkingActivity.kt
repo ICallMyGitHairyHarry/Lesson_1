@@ -2,27 +2,17 @@ package com.example.lesson_1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcelable
 
-class MainActivity : AppCompatActivity() {
-
-    val tag = "TEST"
-
+class NetworkingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_networking)
 
-
-
-        val ActualSingInFragment = ActualSingInFragment()
+        val menuFragment = MenuFragment()
 
         supportFragmentManager.beginTransaction().apply {
-            add(R.id.MainFrame, ActualSingInFragment)
+            add(R.id.mm_frame, menuFragment)
             commit()
         }
     }
-
-
-
-
 }

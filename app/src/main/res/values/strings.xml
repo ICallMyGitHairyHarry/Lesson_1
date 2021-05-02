@@ -10,4 +10,12 @@
 
     <string name="write">Напишите сюда…</string>
 
+    <string name="albums">Albums</string>
+    <string name="users">Users</string>
+    <string name="post">CreatePost</string>
+    <string name="back">Back</string>
+    <string name="title">Title</string>
+    <string name="body">Body</string>
+    <string name="send">Send</string>
+
 </resources>

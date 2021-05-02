@@ -19,11 +19,7 @@ import kotlin.random.Random
 
 class MainMenuActivity : AppCompatActivity() {
 
-    val reserved_messages = arrayListOf("Даже не знаю, что ответить...", "Я отвечу позже", "Подожди, я думаю", "Наверное, я плохой собеседник", "Прости, я не знаю", "Привет!!!", "Шутки шутками, но в шутке доля шутки, как грится", "Шутка? Нет, не шутка")
-    val messages = arrayListOf<Message>()
     val adapter = chatAdapter()
-
-
 
 
     @SuppressLint("ClickableViewAccessibility", "UseCompatLoadingForDrawables")
@@ -45,9 +41,9 @@ class MainMenuActivity : AppCompatActivity() {
         val message_form = findViewById<EditText>(R.id.mess_form)
         messFormLayout.endIconMode = TextInputLayout.END_ICON_CUSTOM
         messFormLayout.endIconDrawable = resources.getDrawable(R.drawable.union)
-        messFormLayout.setEndIconOnClickListener{
+        messFormLayout.setEndIconOnClickListener {
             viewModel.updateMessages(Message(1, message_form.text.toString()))
-            android.os.Handler().postDelayed({ viewModel.addMessages() }, 2000)
+            viewModel.addMessages()
             message_form.text.clear()
         }
 
@@ -65,8 +61,6 @@ class MainMenuActivity : AppCompatActivity() {
         }
 
 
-
-
     }
 
 //    fun addMessages() {
@@ -76,5 +70,5 @@ class MainMenuActivity : AppCompatActivity() {
 }
 
 @Parcelize
-data class Message(val person: Int, val text: String): Parcelable {
+data class Message(val person: Int, val text: String) : Parcelable {
 }
